@@ -67,6 +67,7 @@ gulp.task('watch', function () {
   gulp.watch('./src/templates/*.pug',['html']);
   gulp.watch('./src/js/**/*.js',['js']);
   gulp.watch('./src/img/**/*.jpeg',['img']);
+  gulp.watch('./src/index.pug',['htmlHome']);
 
 });
 

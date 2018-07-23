@@ -1,5 +1,4 @@
 (function showContentDefiniton(newElement) {
-
     'use strict';
 
     class ShowContent extends HTMLElement {
@@ -13,6 +12,7 @@
         }
 
         connectedCallback() {
+            
         }
     }
 

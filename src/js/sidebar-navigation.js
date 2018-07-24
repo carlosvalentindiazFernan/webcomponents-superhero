@@ -13,8 +13,8 @@
 
 
     connectedCallback() {
-
-      this.addEventListener('click', (event)=>{
+      console.log(document)
+      document.addEventListener('click', (event)=>{
         const element = event.target;
          this.dispatchEvent(new CustomEvent('navigation-active', {
            bubbles:true,

@@ -16,6 +16,10 @@
                 console.log("Escucho...", event)
             });                        
         }
+
+        _getData(){
+
+        }
     }
 
     newElement.define('show-content', ShowContent);

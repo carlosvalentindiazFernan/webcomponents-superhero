@@ -1,7 +1,8 @@
-var gulp = require('gulp');
-var pug = require('gulp-pug');
-var sass = require('gulp-sass');
-var connect = require('gulp-connect');
+import gulp from 'gulp';
+import sass from 'gulp-sass';
+import pug from 'gulp-pug';
+import connect from 'gulp-connect';
+
 
 gulp.task('connect', () => {
   connect.server({

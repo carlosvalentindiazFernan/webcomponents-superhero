@@ -15,12 +15,9 @@
 
         connectedCallback() {
 
-            this.shadowRoot.querySelector('#button-delete')
-            .addEventListener('click', this._deleteObject.bind(this));
-      
 
             document.addEventListener('navigation-active', (event)=>{
-                this._text.innerHTML = event.detail.element.id
+                this._text.innerHTML = event.detail
                 console.log("Escucho...", event)
             });                        
         }

@@ -1,6 +1,12 @@
 template#show-content
   link(rel='stylesheet' href='/css/show-content.css')
-  h1 SHOW CONTENT
-  p#text-super Adat
+  p#text-super deni
+  <slot name="hero-name" class="hero-name">NEED NAME</slot>
+  <slot name="hero-realname" class="hero-realname">NEED REAL NAME</slot>
+  <slot name="hero-baseOperations" class="hero-baseOperations">NEED baseOperations</slot>
+  <slot name="hero-powers" class="hero-powers">NEED powers</slot>
+  <slot name="hero-occupation" class="hero-occupation">NEED occupation</slot>
+  <slot name="hero-profile" class="hero-profile">NEED profile</slot>
+  <slot name="hero-facebook" class="hero-facebook">NEED facebook</slot>
   button#button-delete Delete
 script(src='/js/show-content.js',)

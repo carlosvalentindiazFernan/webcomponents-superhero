@@ -5,7 +5,7 @@ let dataCatalogs = [
         "baseOperations" : "Metropolis",
         "powers": "super strength, flight, invulnerability, super speed, heat vision, freeze breath, x-ray vision, superhuman hearing, healing factor",
         "occupation": "Reporter",
-        "profile": "",
+        "profile": "../img/profile/superman.jpg",
         "facebook": "https://www.facebook.com/superman"
     },
     {

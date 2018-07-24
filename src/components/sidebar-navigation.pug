@@ -1,10 +1,9 @@
 template#sidebar-navigation
   link(rel='stylesheet' href='css/sidebar-navigation.css')
   section
-    h1 Side Bar
-    p#spiderman Spiderman
-    p#batman.edit_p Batman
-    p#goku.edit_p Goku
+    h1 All heros
+    <slot name="hero-name" class="hero-name" >NEED NAME</slot>
+
 script(src='/js/sidebar-navigation.js')
 
 

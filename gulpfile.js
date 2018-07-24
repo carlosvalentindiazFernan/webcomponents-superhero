@@ -1,7 +1,7 @@
-import gulp from 'gulp';
-import sass from 'gulp-sass';
-import pug from 'gulp-pug';
-import connect from 'gulp-connect';
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var pug = require('gulp-pug');
+var connect = require('gulp-connect');
 
 
 gulp.task('connect', () => {
@@ -24,6 +24,12 @@ gulp.task('htmlHome', function () {
   return gulp.src('./src/index.pug')
     .pipe(pug())
     .pipe(gulp.dest('./build'))
+    .pipe(connect.reload());
+});
+
+gulp.task('utils', function () {
+  return gulp.src('./src/utils/*')
+    .pipe(gulp.dest('./build/utils'))
     .pipe(connect.reload());
 });
 
@@ -81,4 +87,4 @@ gulp.task('watch', function () {
 
 
 gulp.task('default', ['html','catalogs', 'htmlHome', 'sass', 'js',
-  'img', 'fonts', 'normalize', 'watch', 'connect']);
+  'img', 'fonts', 'normalize', 'watch', 'connect','utils']);

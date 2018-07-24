@@ -1,4 +1,4 @@
-    export default dataCatalogs = [
+let dataCatalogs = [
     {
         "name": "Superman",
         "realName": "Clark Joseph Kent",
@@ -63,3 +63,5 @@
         "facebook": ""        
     }
 ]
+
+export default dataCatalogs;

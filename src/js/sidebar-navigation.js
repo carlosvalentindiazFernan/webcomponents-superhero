@@ -1,5 +1,3 @@
-import { helloWorld } from './lib.js'
-helloWorld()
 (function sidebarNavigationDefiniton(newElement) {
   'use strict';
 
@@ -15,15 +13,26 @@ helloWorld()
 
 
     connectedCallback() {
-      console.log(document)
-      document.addEventListener('click', (event)=>{
-        const element = event.target;
-         this.dispatchEvent(new CustomEvent('navigation-active', {
-           bubbles:true,
-           composed:false,
-           detail:{element}
-         }));
-      });   
+
+      let events = this.shadowRoot.querySelectorAll('p')
+            
+      events.forEach(e => {
+        console.log(e)
+        e.addEventListener('click', (event) => {
+          const element = event.target;
+          this.dispatchEvent(new CustomEvent('navigation-active', {
+            bubbles: true,
+            composed: false,
+            detail: { element }
+          }))
+        })
+
+      });
+
+    }
+
+    _nextImage(){
+      console.log("this is a test")
     }
 
   }

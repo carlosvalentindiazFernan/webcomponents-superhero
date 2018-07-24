@@ -1,2 +1,2 @@
-import { helloWorld } from './lib.js'
-helloWorld()
+import dataCatalogs from '../utils/data.js';
+console.log(dataCatalogs)

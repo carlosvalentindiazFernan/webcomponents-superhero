@@ -1,3 +1,5 @@
+import { helloWorld } from './lib.js'
+helloWorld()
 (function sidebarNavigationDefiniton(newElement) {
   'use strict';
 

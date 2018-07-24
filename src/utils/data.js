@@ -1,4 +1,4 @@
-export default dataCatalogs = [
+    export default dataCatalogs = [
     {
         "name": "Superman",
         "realName": "Clark Joseph Kent",

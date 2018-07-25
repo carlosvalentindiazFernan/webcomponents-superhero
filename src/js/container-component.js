@@ -19,14 +19,18 @@
 //            this._dataCatalogs.map(e => this._createList(e))
 
             document.addEventListener('navigation-active', (event) => {
-                this._getData(event.detail)
+               this._getData(event.detail)
             });
+
+            this.addEventListener('delete-hero', (event) => {
+                this._deleteHero(event.detail)
+            });            
         }
 
         _getData(hero) {
 
             let component = `
-                <show-content profile="${hero.profile}">
+                <show-content profile="${hero.profile}" id=${hero.name}>
                     <span slot="hero-name">${hero.name}</span>
                     <span slot="hero-realname">>${hero.realName}</span>
                     <span slot="hero-baseOperations">${hero.baseOperations}</span>
@@ -35,12 +39,15 @@
                     <span slot="hero-facebook">${hero.facebook}</span>
                 </show-content>            
             `;
-            console.log(component)
-            console.log(this._container)
+
             this._container.insertAdjacentHTML(
                 'afterbegin', component);
         }        
 
+        _deleteHero(data){
+            console.log(data)
+
+        }
             
     }
 

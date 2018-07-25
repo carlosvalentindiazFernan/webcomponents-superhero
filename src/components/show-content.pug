@@ -5,7 +5,7 @@ template#show-content
     .container-profile-hero
       img#hero-profile(src='/img/profile/batman.jpg' alt='')
     p Name
-    slot.hero-slot(name='hero-name') NEED NAME
+    slot.hero-slot(name='hero-name' id="heroname") NEED NAME
     p Real name
     slot.hero-slot(name='hero-realname') NEED REAL NAME
     p Base of Operations
@@ -17,7 +17,7 @@ template#show-content
     p Facebook
     slot.hero-slot(name='hero-facebook') NEED FACEBOOK
     .section-delete 
-      button Delete
+      button#buton-delete Delete
 
   
 

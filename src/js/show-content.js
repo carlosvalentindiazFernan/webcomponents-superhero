@@ -14,11 +14,20 @@
             shadowRoot.appendChild(document.importNode(templ.content, true));
             this._text = this.shadowRoot.querySelector('#text-super');
             this._section = this.shadowRoot.querySelector("section");
-            this.img  = this.shadowRoot.querySelector('#hero-profile')
-
+            this.img  = this.shadowRoot.querySelector('#hero-profile');
         }
 
         connectedCallback() {
+            this.shadowRoot.querySelector('#buton-delete')
+            .addEventListener('click',(event)=>{
+                let d =this.shadowRoot.querySelector("#heroname")
+                console.log("demo")
+                this.dispatchEvent(new CustomEvent('delete-hero', {
+                    bubbles: false,
+                    composed: true,
+                    detail: {"id": 120}
+                }));
+            });
 
 
         }
@@ -26,7 +35,6 @@
         static get observedAttributes() {
             return ['profile'];
         }
-
 
         attributeChangedCallback(attr, oldValue, newValue) {
             if (attr === 'profile' && newValue != ""
@@ -36,6 +44,7 @@
                 this.img.setAttribute('src',"");
             }
         }
+
 
 
         _deleteObject() {

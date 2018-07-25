@@ -8,6 +8,7 @@
             const shadowRoot = this.attachShadow({ mode: 'open' });
             const templ = document.currentScript.ownerDocument.querySelector('#sidebar-navigation');
             shadowRoot.appendChild(document.importNode(templ.content, true));
+            this._container = this.shadowRoot.querySelector("section")
             this._dataCatalogs = [
                 {
                     "name": "Superman",
@@ -16,7 +17,8 @@
                     "powers": "super strength, flight, invulnerability, super speed, heat vision, freeze breath, x-ray vision, superhuman hearing, healing factor",
                     "occupation": "Reporter",
                     "profile": "../img/profile/superman.jpg",
-                    "facebook": "https://www.facebook.com/superman"
+                    "facebook": "https://www.facebook.com/superman",
+                    "img": "../img/supermanback.jpg"
                 },
                 {
                     "name": "Batman",
@@ -24,8 +26,9 @@
                     "baseOperations": "",
                     "powers": "exceptional martial artist, combat strategy, inexhaustible wealth, brilliant deductive skill, advanced technology",
                     "occupation": "CEO of Wayne Enterprises",
-                    "profile": "",
-                    "facebook": "https://www.facebook.com/batman"
+                    "profile": "../img/profile/batman.jpg",
+                    "facebook": "https://www.facebook.com/batman",
+                    "img": "../img/batman.jpg"                    
                 },
                 {
                     "name": "Wonder Woman",
@@ -33,8 +36,9 @@
                     "baseOperations": "Amazon",
                     "powers": "super strength, invulnerability, flight, combat skill, combat strategy, superhuman agility, healing factor, magic weaponry",
                     "occupation": "Amazon Princess",
-                    "profile": "",
-                    "facebook": "http://www.facebook.com/wonderwoman"
+                    "profile": "../img/profile/worderman.jpg",
+                    "facebook": "http://www.facebook.com/wonderwoman",
+                    "img": "../img/worderman.jpg"  
                 },
                 {
                     "name": "Green Lantern",
@@ -42,8 +46,11 @@
                     "baseOperations": "Coast City",
                     "powers": "hard light constructs, instant weaponry, force fields, flight, durability, alien technology",
                     "occupation": "Test pilot",
-                    "profile": "",
-                    "facebook": "https://www.facebook.com/greenlantern"
+                    "profile": "../img/profile/green.jpg",
+                    "facebook": "https://www.facebook.com/greenlantern",
+                    "img": "../img/green.jpg",
+                    
+
                 },
                 {
                     "name": "The Flash",
@@ -51,8 +58,10 @@
                     "baseOperations": "Central City",
                     "powers": "super speed, intangibility, superhuman agility",
                     "occupation": "Forensic scientist",
-                    "profile": "",
-                    "facebook": "http://www.facebook.com/theflash"
+                    "profile": "../img/profile/flash.jpg",
+                    "facebook": "http://www.facebook.com/theflash",
+                    "img": "../img/flash.jpg",
+                    
                 },
                 {
                     "name": "Acuaman",
@@ -60,8 +69,10 @@
                     "baseOperations": "Atlantis",
                     "powers": "super strength, durability, control over sea life, exceptional swimming ability, ability to breathe underwater",
                     "occupation": "King of Atlantis",
-                    "profile": "",
-                    "facebook": "http://www.facebook.com/aquaman"
+                    "profile": "../img/profile/acuaman.jpg",
+                    "facebook": "http://www.facebook.com/aquaman",
+                    "img": "../img/cirbor.jpg",
+                    
                 },
                 {
                     "name": "Cyborg",
@@ -69,34 +80,37 @@
                     "baseOperations": "Detroit",
                     "powers": "super strength, advanced technology, instant weaponry, genius-level intellect, control over technology, computer hacking, durability, teleportation",
                     "occupation": "Former student",
-                    "profile": "",
-                    "facebook": ""
+                    "profile": "../img/profile/cirbor.jpg",
+                    "facebook": "",
+                    "img": "../img/cirbor.jpg",
+
                 }
             ]
         }
 
 
         connectedCallback() {
-
-            let events = this.shadowRoot.querySelectorAll('slot')
-
-            events.forEach(e => {
-                e.addEventListener('click', (event) => {
-                    const element = event.target
-                    this.dispatchEvent(new CustomEvent('navigation-active', {
-                        bubbles: true,
-                        composed: false,
-                        detail: element
-                    }))
-                })
-
-            });
-
+            this._dataCatalogs.map(e => this._createList(e))
         }
 
+        _createList(data){
+            var para = document.createElement("p");
+            var node = document.createTextNode(data.name);
+            para.appendChild(node);
 
+            para.addEventListener('click',(event)=>{
+                this.dispatchEvent(new CustomEvent('navigation-active', {
+                    bubbles: true,
+                    composed: false,
+                    detail: data
+                }));
+            });
 
+            this._container.appendChild(para);    
+        }
+            
     }
+
 
     newElement.define('sidebar-navigation', SidebarNavigation);
 

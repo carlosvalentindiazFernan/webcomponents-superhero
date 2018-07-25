@@ -1,25 +1,42 @@
 (function showContentDefiniton(newElement) {
     'use strict';
 
+    let importedDoc = document.currentScript.ownerDocument;
+
     class ShowContent extends HTMLElement {
+
 
         constructor() {
             super();
 
             const shadowRoot = this.attachShadow({ mode: 'open' });
-            const templ = document.currentScript.ownerDocument.querySelector('#show-content');
+            const templ = importedDoc.querySelector('#show-content');
             shadowRoot.appendChild(document.importNode(templ.content, true));
             this._text = this.shadowRoot.querySelector('#text-super');
             this._section = this.shadowRoot.querySelector("section");
+            this.img  = this.shadowRoot.querySelector('#hero-profile')
+
         }
 
         connectedCallback() {
 
 
-            document.addEventListener('navigation-active', (event) => {
-                this._getData(event.detail)
-            });
         }
+
+        static get observedAttributes() {
+            return ['profile'];
+        }
+
+
+        attributeChangedCallback(attr, oldValue, newValue) {
+            if (attr === 'profile' && newValue != ""
+                && newValue != null){
+                this.img.setAttribute('src',newValue);
+            }else{
+                this.img.setAttribute('src',"");
+            }
+        }
+
 
         _deleteObject() {
             console.log("erase")

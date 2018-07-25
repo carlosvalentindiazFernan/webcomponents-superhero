@@ -21,10 +21,9 @@
             this.shadowRoot.querySelector('#buton-delete')
             .addEventListener('click',(event)=>{
                 let d =this.shadowRoot.querySelector("#heroname")
-                console.log("demo")
+                console.log(d)
+
                 this.dispatchEvent(new CustomEvent('delete-hero', {
-                    bubbles: false,
-                    composed: true,
                     detail: {"id": 120}
                 }));
             });

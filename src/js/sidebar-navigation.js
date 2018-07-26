@@ -81,7 +81,7 @@
                     "powers": "super strength, advanced technology, instant weaponry, genius-level intellect, control over technology, computer hacking, durability, teleportation",
                     "occupation": "Former student",
                     "profile": "../img/profile/cirbor.jpg",
-                    "facebook": "",
+                    "facebook": "http://www.facebook.com/cirbor",
                     "img": "../img/cirbor.jpg",
 
                 }

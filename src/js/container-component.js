@@ -30,12 +30,11 @@
 
             let component = `
                 <show-content profile="${hero.profile}" id=${hero.name}>
-                    <span slot="hero-name">${hero.name}</span>
-                    <span slot="hero-realname">>${hero.realName}</span>
-                    <span slot="hero-baseOperations">${hero.baseOperations}</span>
-                    <span slot="hero-powers">${hero.powers}</span>
-                    <span slot="hero-occupation">${hero.occupation}</span>
-                    <span slot="hero-facebook">${hero.facebook}</span>
+                    <span class="hero-slot" slot="hero-name">${hero.name}</span>
+                    <span class="hero-slot" slot="hero-realname">>${hero.realName}</span>
+                    <span class="hero-slot" slot="hero-baseOperations">${hero.baseOperations}</span>
+                    <span class="hero-slot" slot="hero-occupation">${hero.occupation}</span>
+                    <span class="hero-slot" slot="hero-facebook">${hero.facebook}</span>
                 </show-content>            
             `;
 

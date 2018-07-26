@@ -97,13 +97,14 @@
             var para = document.createElement("p");
             var node = document.createTextNode(data.name);
             para.appendChild(node);
-
+                                    
             para.addEventListener('click',(event)=>{
                 this.dispatchEvent(new CustomEvent('navigation-active', {
                     bubbles: true,
                     composed: false,
                     detail: data
                 }));
+
             });
 
             this._container.appendChild(para);    

@@ -16,11 +16,10 @@
 
 
         connectedCallback() {
-//            this._dataCatalogs.map(e => this._createList(e))
 
-            document.addEventListener('navigation-active', (event) => {
-               this._getData(event.detail)
-            });
+            this.addEventListener('navigation-down',(e)=>{
+                this._getData(event.detail)
+            })
 
             this.addEventListener('delete-hero', (event) => {
                 this._deleteHero(event.detail)

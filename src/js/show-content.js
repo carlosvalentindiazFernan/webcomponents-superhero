@@ -27,8 +27,6 @@
                     detail: {"id": 120}
                 }));
             });
-
-
         }
 
         static get observedAttributes() {

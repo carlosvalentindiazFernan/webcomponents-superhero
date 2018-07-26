@@ -31,7 +31,7 @@
                     "img": "../img/batman.jpg"                    
                 },
                 {
-                    "name": "Wonder Woman",
+                    "name": "WonderWoman",
                     "realName": "Diana",
                     "baseOperations": "Amazon",
                     "powers": "super strength, invulnerability, flight, combat skill, combat strategy, superhuman agility, healing factor, magic weaponry",
@@ -41,7 +41,7 @@
                     "img": "../img/worderman.jpg"  
                 },
                 {
-                    "name": "Green Lantern",
+                    "name": "GreenLantern",
                     "realName": "Hal Jordan",
                     "baseOperations": "Coast City",
                     "powers": "hard light constructs, instant weaponry, force fields, flight, durability, alien technology",
@@ -53,7 +53,7 @@
 
                 },
                 {
-                    "name": "The Flash",
+                    "name": "Flash",
                     "realName": "Barry Allen",
                     "baseOperations": "Central City",
                     "powers": "super speed, intangibility, superhuman agility",
@@ -97,8 +97,11 @@
             var para = document.createElement("p");
             var node = document.createTextNode(data.name);
             para.appendChild(node);
-                                    
+           
+            let countId = 0;
             para.addEventListener('click',(event)=>{
+                countId = countId +1
+                data['id'] = data.name+countId;
                 this.dispatchEvent(new CustomEvent('navigation-active', {
                     bubbles: true,
                     composed: false,

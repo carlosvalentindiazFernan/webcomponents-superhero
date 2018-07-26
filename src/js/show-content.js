@@ -15,68 +15,39 @@
             this._text = this.shadowRoot.querySelector('#text-super');
             this._section = this.shadowRoot.querySelector("section");
             this.img  = this.shadowRoot.querySelector('#hero-profile');
+            this._element = this.shadowRoot.querySelector("article")
         }
 
         connectedCallback() {
             this.shadowRoot.querySelector('#buton-delete')
             .addEventListener('click',(event)=>{
-                let d =this.shadowRoot.querySelector("#heroname")
-                console.log(d)
+ //               let d =this.shadowRoot.querySelector("#heroname")
+//                let d =this.shadowRoot.querySelector('slot').assignedNodes()
+//                console.log(d[0].textContent)
+                console.log(this._element.id)
 
                 this.dispatchEvent(new CustomEvent('delete-hero', {
-                    detail: {"id": 120}
+                    bubbles: false,
+                    composed: true,                    
+                    detail: this._element.id
                 }));
             });
         }
 
         static get observedAttributes() {
-            return ['profile'];
+            return ['profile','id'];
         }
 
         attributeChangedCallback(attr, oldValue, newValue) {
-            if (attr === 'profile' && newValue != ""
-                && newValue != null){
+            if (attr === 'profile'){
                 this.img.setAttribute('src',newValue);
-            }else{
-                this.img.setAttribute('src',"");
+            }
+
+            if(attr === 'id'){
+                this._element.setAttribute("id",newValue)
             }
         }
 
-
-
-        _deleteObject() {
-            console.log("erase")
-        }
-
-        _getData(hero) {
-
-            let component = `
-                <div class="container-hero">
-                    <p>Name</p>
-                    <div class="hero-name-super" id="hero-name">${hero.name}</div>
-                    <p>Real name</p>
-                    <div class="hero-realname-super" id="hero-realname">${hero.realName}</div>
-                    <p>Base of operations</p>
-                    <div class="hero-baseoperations-super" id="hero-baseoperations">${hero.baseOperations}</div>
-                    <p>Hero powers</p>
-                    <div class="hero-powers-super" id="hero-powers">${hero.powers}</div>
-                    <p>Hero occupation</p>
-                    <div class="hero-occupation-super" id="hero-occupation">${hero.occupation}</div>
-                    <p></p>
-                    <img src="${hero.profile}"></img>
-                    <p></p>
-                    <img src="${hero.img}"></img>                
-                    <p>Facebook</p>
-                    <div class="hero-facebook-super" id="hero-facebook">${hero.facebook}</div>
-                    <button id="button-delete">Delete</button>
-                </div>
-            `;
-
-            this._section.insertAdjacentHTML(
-                'afterbegin', component);
-
-
-        }
     }
 
     newElement.define('show-content', ShowContent);

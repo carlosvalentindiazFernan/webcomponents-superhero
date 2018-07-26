@@ -27,9 +27,8 @@
         }
 
         _getData(hero) {
-
             let component = `
-                <show-content profile="${hero.profile}" id=${hero.name}>
+                <show-content profile="${hero.profile}" id="${hero.id}">
                     <span class="hero-slot" slot="hero-name">${hero.name}</span>
                     <span class="hero-slot" slot="hero-realname">>${hero.realName}</span>
                     <span class="hero-slot" slot="hero-baseOperations">${hero.baseOperations}</span>
@@ -43,8 +42,8 @@
         }        
 
         _deleteHero(data){
-            console.log(data)
-
+            let element = this.shadowRoot.querySelector("#"+data)
+            this._container.removeChild(element)
         }
             
     }

@@ -15,7 +15,9 @@
             this._text = this.shadowRoot.querySelector('#text-super');
             this._section = this.shadowRoot.querySelector("section");
             this.img  = this.shadowRoot.querySelector('#hero-profile');
-            this._element = this.shadowRoot.querySelector("article")
+            this._element = this.shadowRoot.querySelector("article")                       
+            this.img.setAttribute('src',"https://sawmill-creek.com/wp-content/uploads/2018/03/Circle-icons-profle.svg-300x300.png");
+
         }
 
         connectedCallback() {
@@ -31,6 +33,7 @@
                     composed: true,                    
                     detail: this._element.id
                 }));
+
             });
         }
 
@@ -39,12 +42,20 @@
         }
 
         attributeChangedCallback(attr, oldValue, newValue) {
-            if (attr === 'profile'){
-                this.img.setAttribute('src',newValue);
-            }
+            console.log(newValue)
 
-            if(attr === 'id'){
-                this._element.setAttribute("id",newValue)
+            switch(attr){
+                case 'profile':
+                    if(newValue !== "" && newValue != null){
+                        this.img.setAttribute('src',newValue);                        
+                    }else{
+                        this.img.setAttribute('src',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5jKGCDCAwvaukRxD-dMS_yr8V4_SUjeP5B3BGIGnxKKfiON6f");                        
+                    }
+                break;
+                case 'id':
+                  this._element.setAttribute("id",newValue)
+  
+                break;
             }
         }
 
